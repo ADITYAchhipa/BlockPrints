@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://blockprints.store/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://blockprints.store/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://blockprints.store/"/>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Shop Page -->
+  <url>
+    <loc>https://blockprints.store/shop</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://blockprints.store/shop"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://blockprints.store/shop"/>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://blockprints.store/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://blockprints.store/about"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://blockprints.store/about"/>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Contact Page -->
+  <url>
+    <loc>https://blockprints.store/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://blockprints.store/contact"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://blockprints.store/contact"/>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Blog Listing -->
+  <url>
+    <loc>https://blockprints.store/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://blockprints.store/blog"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://blockprints.store/blog"/>
+    <lastmod>2026-01-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://blockprints.store/blog/what-is-block-printing</loc>
+    <lastmod>2026-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://blockprints.store/blog/dabu-vs-ajrakh-print-difference</loc>
+    <lastmod>2026-01-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://blockprints.store/blog/how-to-care-for-block-printed-clothes</loc>
+    <lastmod>2026-01-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://blockprints.store/blog/natural-dyes-guide-indigo-turmeric</loc>
+    <lastmod>2026-01-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://blockprints.store/blog/block-print-fashion-trends-2026</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://blockprints.store/blog/block-print-wedding-guide</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

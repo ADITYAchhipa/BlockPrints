@@ -4,19 +4,25 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingBag, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useCart } from '@/context/CartContext';
+import { useLanguage } from '@/context/LanguageContext';
+import { translations } from '@/lib/translations';
 import CartDrawer from './CartDrawer';
-
-const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'Shop', path: '/shop' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' },
-];
+import LanguageToggle from './LanguageToggle';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { totalItems, setIsCartOpen } = useCart();
+  const { language } = useLanguage();
+  const t = translations.nav;
+
+  const navLinks = [
+    { name: t.home[language], path: '/' },
+    { name: t.shop[language], path: '/shop' },
+    { name: t.about[language], path: '/about' },
+    { name: t.blog[language], path: '/blog' },
+    { name: t.contact[language], path: '/contact' },
+  ];
 
   return (
     <>
@@ -31,7 +37,7 @@ const Navbar = () => {
             {/* Logo */}
             <Link to="/" className="flex items-center">
               <h1 className="text-2xl md:text-3xl font-display font-semibold text-foreground tracking-wide">
-                <span className="text-primary">Chhaap</span>
+                <span className="text-primary">BlockPrints</span>
                 <span className="text-accent">.</span>
               </h1>
             </Link>
@@ -42,11 +48,10 @@ const Navbar = () => {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`relative font-body text-sm font-medium tracking-wide transition-colors duration-300 ${
-                    location.pathname === link.path
+                  className={`relative font-body text-sm font-medium tracking-wide transition-colors duration-300 ${location.pathname === link.path
                       ? 'text-primary'
                       : 'text-foreground/70 hover:text-primary'
-                  }`}
+                    }`}
                 >
                   {link.name}
                   {location.pathname === link.path && (
@@ -59,8 +64,10 @@ const Navbar = () => {
               ))}
             </div>
 
-            {/* Cart & Mobile Menu */}
-            <div className="flex items-center gap-4">
+            {/* Language Toggle, Cart & Mobile Menu */}
+            <div className="flex items-center gap-2">
+              <LanguageToggle />
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -103,16 +110,19 @@ const Navbar = () => {
               <div className="flex flex-col h-full p-6">
                 <div className="flex justify-between items-center mb-12">
                   <h1 className="text-2xl font-display font-semibold">
-                    <span className="text-primary">Chhaap</span>
+                    <span className="text-primary">BlockPrints</span>
                     <span className="text-accent">.</span>
                   </h1>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    <X className="h-6 w-6" />
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <LanguageToggle />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      <X className="h-6 w-6" />
+                    </Button>
+                  </div>
                 </div>
 
                 <div className="flex flex-col gap-6">
@@ -126,11 +136,10 @@ const Navbar = () => {
                       <Link
                         to={link.path}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className={`text-3xl font-display font-medium ${
-                          location.pathname === link.path
+                        className={`text-3xl font-display font-medium ${location.pathname === link.path
                             ? 'text-primary'
                             : 'text-foreground/70'
-                        }`}
+                          }`}
                       >
                         {link.name}
                       </Link>

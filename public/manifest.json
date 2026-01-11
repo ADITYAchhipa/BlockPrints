@@ -1,0 +1,29 @@
+{
+    "name": "BlockPrints",
+    "short_name": "BlockPrints",
+    "description": "Authentic hand block printed clothing and textiles from India. Natural dyes, sustainable fashion, direct from Jaipur artisans.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FAFAFA",
+    "theme_color": "#4A5568",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "/logo.svg",
+            "sizes": "any",
+            "type": "image/svg+xml"
+        }
+    ],
+    "categories": [
+        "shopping",
+        "fashion",
+        "lifestyle"
+    ],
+    "lang": "en",
+    "dir": "ltr"
+}
