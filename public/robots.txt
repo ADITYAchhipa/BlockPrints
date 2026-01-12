@@ -1,5 +1,18 @@
 User-agent: *
 Allow: /
+
 Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
 
 Sitemap: https://blockprints.store/sitemap.xml
+
+# --- Optional: Block AI crawlers ---
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
