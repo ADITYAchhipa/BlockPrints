@@ -5,157 +5,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Favicon & Manifest (essential, keep here) -->
+  <!-- Favicon & Manifest -->
   <link rel="manifest" href="/manifest.json" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
   <link rel="shortcut icon" type="image/svg+xml" href="/logo.svg" />
   <link rel="apple-touch-icon" href="/logo.svg" />
 
-  <!-- Theme colors (essential, keep here) -->
+  <!-- Theme colors -->
   <meta name="msapplication-TileColor" content="#0aa6c3" />
   <meta name="theme-color" content="#0aa6c3" />
 
-  <!-- Apple Web App (essential, keep here) -->
+  <!-- Apple Web App -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="apple-mobile-web-app-title" content="BlockPrints" />
 
-  <!-- Preconnect for Performance (essential, keep here) -->
+  <!-- Preconnect for Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <!-- Fallback title for non-JS crawlers (React Helmet will override) -->
+  <!-- Fallback title (React Helmet will override) -->
   <title>BlockPrints - Hand Block Printed Clothing from India</title>
-
-  <!-- Structured Data - Organization (keep here, not duplicated by Helmet) -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "BlockPrints",
-      "url": "https://blockprints.store",
-      "logo": "https://blockprints.store/logo.svg",
-      "description": "Authentic hand block printed clothing and textiles from India. Natural dyes, sustainable fashion, direct from Jaipur artisans.",
-      "email": "hello@blockprints.store",
-      "foundingDate": "2024",
-      "sameAs": [
-        "https://www.instagram.com/aditya_.chhipa/",
-        "https://facebook.com/blockprints",
-        "https://pinterest.com/blockprints"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Jaipur",
-        "addressRegion": "Rajasthan",
-        "addressCountry": "IN"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "customer service",
-        "availableLanguage": ["English", "Hindi"]
-      }
-    }
-    </script>
-
-  <!-- Structured Data - WebSite with Search -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "BlockPrints",
-      "url": "https://blockprints.store",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://blockprints.store/shop?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-
-  <!-- Structured Data - Store -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Store",
-      "name": "BlockPrints",
-      "url": "https://blockprints.store",
-      "image": "https://blockprints.store/logo.svg",
-      "description": "Authentic hand block printed clothing and textiles from India",
-      "priceRange": "₹1000 - ₹100000",
-      "currenciesAccepted": "INR, USD, GBP, EUR, AUD, CAD",
-      "paymentAccepted": "Credit Card, Debit Card, UPI, PayPal, Bank Transfer",
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "areaServed": {
-        "@type": "GeoCircle",
-        "geoMidpoint": {
-          "@type": "GeoCoordinates",
-          "latitude": 26.9124,
-          "longitude": 75.7873
-        },
-        "geoRadius": "50000000"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Block Printed Clothing & Textiles",
-        "itemListElement": [
-          {"@type": "OfferCatalog", "name": "Sarees"},
-          {"@type": "OfferCatalog", "name": "Kurtas"},
-          {"@type": "OfferCatalog", "name": "Suits"},
-          {"@type": "OfferCatalog", "name": "Dupattas"},
-          {"@type": "OfferCatalog", "name": "Dresses"},
-          {"@type": "OfferCatalog", "name": "Home Textiles"},
-          {"@type": "OfferCatalog", "name": "Fabrics"}
-        ]
-      }
-    }
-    </script>
-
-  <!-- Structured Data - FAQ -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is block printing?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Block printing is an ancient Indian textile art where intricate designs are carved into wooden blocks, dipped in natural dyes, and pressed onto fabric by hand. Each print is unique, bearing the signature of artisan craftsmanship."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do you ship internationally?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, BlockPrints ships worldwide to USA, UK, Canada, Australia, UAE, Europe, and over 100 countries. We offer express and standard shipping options."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Are your dyes natural and eco-friendly?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we use 100% natural vegetable dyes derived from plants like indigo, turmeric, pomegranate, and madder. Our dyes are azo-free, chemical-free, and completely eco-friendly."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What printing styles do you offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We offer Dabu print, Ajrakh print, Bagh print, Kalamkari, Batik, Sanganeri print, and Bagru print - all traditional Indian block printing techniques from different regions."
-          }
-        }
-      ]
-    }
-    </script>
 </head>
 
 <body>

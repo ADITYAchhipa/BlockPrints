@@ -1,8 +1,18 @@
 import { Helmet } from 'react-helmet-async';
-import { PAGE_SEO, ORGANIZATION_SCHEMA, WEBSITE_SCHEMA, generateProductSchema } from '@/lib/seo-keywords';
+import {
+    PAGE_SEO,
+    ORGANIZATION_SCHEMA,
+    WEBSITE_SCHEMA,
+    STORE_SCHEMA,
+    COLLECTION_PAGE_SCHEMA,
+    LOCAL_BUSINESS_SCHEMA,
+    BLOG_SCHEMA,
+    generateProductSchema,
+    generateArticleSchema,
+} from '@/lib/seo-keywords';
 
 interface SEOHeadProps {
-    page: 'home' | 'shop' | 'about' | 'contact';
+    page: 'home' | 'shop' | 'about' | 'contact' | 'blog';
     product?: {
         name: string;
         description: string;
@@ -10,18 +20,47 @@ interface SEOHeadProps {
         image: string;
         category: string;
     };
+    article?: {
+        title: string;
+        description: string;
+        url: string;
+        image: string;
+        datePublished: string;
+        author?: string;
+    };
 }
 
-const SEOHead = ({ page, product }: SEOHeadProps) => {
-    const seo = PAGE_SEO[page];
+const SEOHead = ({ page, product, article }: SEOHeadProps) => {
+    const seo = PAGE_SEO[page] || PAGE_SEO.home;
+
+    // Get route-specific schemas (using any[] as schemas have different shapes)
+    const getRouteSchemas = (): object[] => {
+        const schemas: object[] = [ORGANIZATION_SCHEMA, WEBSITE_SCHEMA];
+
+        switch (page) {
+            case 'home':
+                schemas.push(STORE_SCHEMA);
+                break;
+            case 'shop':
+                schemas.push(COLLECTION_PAGE_SCHEMA);
+                break;
+            case 'contact':
+                schemas.push(LOCAL_BUSINESS_SCHEMA);
+                break;
+            case 'blog':
+                schemas.push(BLOG_SCHEMA);
+                break;
+            // 'about' only gets Organization + Website (already added)
+        }
+
+        return schemas;
+    };
 
     return (
         <Helmet>
             {/* Primary Meta Tags */}
             <title>{seo.title}</title>
-            <meta name="title" content={seo.title} />
             <meta name="description" content={seo.description} />
-            <meta name="keywords" content={seo.keywords} />
             <meta name="author" content="BlockPrints" />
             <meta name="robots" content="index, follow" />
             <link rel="canonical" href={seo.canonical} />
@@ -42,16 +81,24 @@ const SEOHead = ({ page, product }: SEOHeadProps) => {
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.ogImage} />
 
-            {/* Structured Data */}
-            <script type="application/ld+json">
-                {JSON.stringify(ORGANIZATION_SCHEMA)}
-            </script>
-            <script type="application/ld+json">
-                {JSON.stringify(WEBSITE_SCHEMA)}
-            </script>
+            {/* Route-specific Structured Data */}
+            {getRouteSchemas().map((schema, index) => (
+                <script key={index} type="application/ld+json">
+                    {JSON.stringify(schema)}
+                </script>
+            ))}
+
+            {/* Product schema (if product data provided) */}
             {product && (
                 <script type="application/ld+json">
                     {JSON.stringify(generateProductSchema(product))}
+                </script>
+            )}
+
+            {/* Article schema (if article data provided) */}
+            {article && (
+                <script type="application/ld+json">
+                    {JSON.stringify(generateArticleSchema(article))}
                 </script>
             )}
         </Helmet>

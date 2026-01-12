@@ -30,7 +30,7 @@ const Blog = () => {
 
     return (
         <>
-            <SEOHead page="home" />
+            <SEOHead page="blog" />
             <main className="pt-20">
                 {/* Header */}
                 <section className="py-16 bg-gradient-hero">

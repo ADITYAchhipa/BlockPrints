@@ -197,7 +197,7 @@ export function getKeywordCount(): number {
 }
 
 // Page-specific SEO configurations - minimal keywords (Google ignores huge keyword lists)
-export const PAGE_SEO = {
+export const PAGE_SEO: Record<string, { title: string; description: string; keywords: string; canonical: string; ogImage: string }> = {
     home: {
         title: "BlockPrints - Authentic Hand Block Printed Clothing & Textiles from India",
         description: "Shop authentic hand block printed sarees, kurtas, dupattas, home textiles & fabrics. Natural dyes, Dabu, Ajrakh, Kalamkari prints. Direct from Jaipur artisans. Worldwide shipping.",
@@ -226,22 +226,28 @@ export const PAGE_SEO = {
         canonical: `${SITE_CONFIG.domain}/contact`,
         ogImage: `${SITE_CONFIG.domain}/logo.svg`,
     },
+    blog: {
+        title: "BlockPrints Blog | Indian Block Printing, Natural Dyes & Artisan Stories",
+        description: "Learn about traditional Indian block printing techniques, natural dyes, sustainable fashion trends, and stories from our Jaipur artisans.",
+        keywords: "block printing blog, indian textile art, natural dye techniques, sustainable fashion blog, jaipur artisan stories",
+        canonical: `${SITE_CONFIG.domain}/blog`,
+        ogImage: `${SITE_CONFIG.domain}/logo.svg`,
+    },
 };
 
-// Structured data for organization
+// Structured data for organization (global - used on all pages)
 export const ORGANIZATION_SCHEMA = {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE_CONFIG.name,
     url: SITE_CONFIG.domain,
-    logo: `${SITE_CONFIG.domain}/logo.png`,
+    logo: `${SITE_CONFIG.domain}/logo.svg`,
     description: "Authentic hand block printed clothing and textiles from India. Natural dyes, sustainable fashion, direct from artisans.",
     email: SITE_CONFIG.email,
     sameAs: [
+        "https://www.instagram.com/aditya_.chhipa/",
         "https://facebook.com/blockprints",
-        "https://instagram.com/blockprints",
         "https://pinterest.com/blockprints",
-        "https://twitter.com/blockprints",
     ],
     address: {
         "@type": "PostalAddress",
@@ -249,9 +255,14 @@ export const ORGANIZATION_SCHEMA = {
         addressRegion: "Rajasthan",
         addressCountry: "IN",
     },
+    contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        availableLanguage: ["English", "Hindi"],
+    },
 };
 
-// Structured data for website
+// Structured data for website (global - used on all pages)
 export const WEBSITE_SCHEMA = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -261,6 +272,67 @@ export const WEBSITE_SCHEMA = {
         "@type": "SearchAction",
         target: `${SITE_CONFIG.domain}/shop?q={search_term_string}`,
         "query-input": "required name=search_term_string",
+    },
+};
+
+// Store schema (for homepage)
+export const STORE_SCHEMA = {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.domain,
+    image: `${SITE_CONFIG.domain}/logo.svg`,
+    description: "Authentic hand block printed clothing and textiles from India",
+    priceRange: "₹1000 - ₹100000",
+    currenciesAccepted: "INR, USD, GBP, EUR",
+    paymentAccepted: "Credit Card, Debit Card, UPI, PayPal",
+    openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "00:00",
+        closes: "23:59",
+    },
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Jaipur",
+        addressRegion: "Rajasthan",
+        addressCountry: "IN",
+    },
+};
+
+// CollectionPage schema (for /shop page)
+export const COLLECTION_PAGE_SCHEMA = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Block Printed Clothing Collection",
+    description: "Explore our curated collection of authentic hand block printed sarees, kurtas, suits, dresses, dupattas & fabrics.",
+    url: `${SITE_CONFIG.domain}/shop`,
+    isPartOf: {
+        "@type": "WebSite",
+        name: SITE_CONFIG.name,
+        url: SITE_CONFIG.domain,
+    },
+};
+
+// LocalBusiness schema (for /contact page)
+export const LOCAL_BUSINESS_SCHEMA = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.domain,
+    image: `${SITE_CONFIG.domain}/logo.svg`,
+    email: SITE_CONFIG.email,
+    address: {
+        "@type": "PostalAddress",
+        addressLocality: "Jaipur",
+        addressRegion: "Rajasthan",
+        addressCountry: "IN",
+    },
+    openingHoursSpecification: {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        opens: "00:00",
+        closes: "23:59",
     },
 };
 
@@ -295,3 +367,52 @@ export function generateProductSchema(product: {
         category: product.category,
     };
 }
+
+// Generate article schema (for blog posts)
+export function generateArticleSchema(article: {
+    title: string;
+    description: string;
+    url: string;
+    image: string;
+    datePublished: string;
+    author?: string;
+}) {
+    return {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: article.title,
+        description: article.description,
+        url: article.url,
+        image: article.image,
+        datePublished: article.datePublished,
+        author: {
+            "@type": "Organization",
+            name: article.author || SITE_CONFIG.name,
+        },
+        publisher: {
+            "@type": "Organization",
+            name: SITE_CONFIG.name,
+            logo: {
+                "@type": "ImageObject",
+                url: `${SITE_CONFIG.domain}/logo.svg`,
+            },
+        },
+    };
+}
+
+// Blog listing schema (for /blog page)
+export const BLOG_SCHEMA = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    name: `${SITE_CONFIG.name} Blog`,
+    description: "Learn about traditional Indian block printing techniques, natural dyes, sustainable fashion, and artisan stories.",
+    url: `${SITE_CONFIG.domain}/blog`,
+    publisher: {
+        "@type": "Organization",
+        name: SITE_CONFIG.name,
+        logo: {
+            "@type": "ImageObject",
+            url: `${SITE_CONFIG.domain}/logo.svg`,
+        },
+    },
+};
