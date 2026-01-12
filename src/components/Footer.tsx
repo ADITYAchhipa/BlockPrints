@@ -9,11 +9,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <h2 className="text-2xl font-display font-semibold mb-4">
-              <span className="text-primary">Chhaap</span>
+              <span className="text-primary">BlockPrints</span>
               <span className="text-accent">.</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed max-w-md mb-6">
-              Celebrating the art of traditional block printing. Each piece tells a story of skilled artisans 
+              Celebrating the art of traditional block printing. Each piece tells a story of skilled artisans
               and centuries-old techniques, using only natural dyes and organic cotton.
             </p>
             <div className="flex gap-4">
@@ -56,7 +56,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-12 pt-8 text-center text-sm text-muted-foreground">
-          <p>© 2024 Chhaap. All rights reserved. Crafted with love in India.</p>
+          <p>© 2025 BlockPrints. All rights reserved. Crafted with love in India.</p>
         </div>
       </div>
     </footer>

@@ -196,35 +196,35 @@ export function getKeywordCount(): number {
     return generateAllKeywords().length;
 }
 
-// Page-specific SEO configurations
+// Page-specific SEO configurations - minimal keywords (Google ignores huge keyword lists)
 export const PAGE_SEO = {
     home: {
         title: "BlockPrints - Authentic Hand Block Printed Clothing & Textiles from India",
         description: "Shop authentic hand block printed sarees, kurtas, dupattas, home textiles & fabrics. Natural dyes, Dabu, Ajrakh, Kalamkari prints. Direct from Jaipur artisans. Worldwide shipping.",
-        keywords: generateAllKeywords().slice(0, 200).join(", "),
+        keywords: "block print, hand block print, indian block print, jaipur block print, block print saree, block print kurta, dabu print, ajrakh, natural dye clothing, handcrafted indian textiles",
         canonical: SITE_CONFIG.domain,
-        ogImage: "/og-home.jpg",
+        ogImage: `${SITE_CONFIG.domain}/logo.svg`,
     },
     shop: {
         title: "Shop Block Printed Clothing & Textiles | BlockPrints Collection",
         description: "Explore our curated collection of hand block printed sarees, kurtas, suits, dresses, dupattas, bedsheets & fabrics. Natural dyes, sustainable fashion. Free worldwide shipping.",
-        keywords: [...Object.values(PRODUCT_KEYWORDS).flat().slice(0, 150), ...SHOPPING_KEYWORDS].join(", "),
+        keywords: "buy block print online, block print saree, block print kurta, cotton block print, block print fabric, handloom saree, indian ethnic wear, sustainable fashion",
         canonical: `${SITE_CONFIG.domain}/shop`,
-        ogImage: "/og-shop.jpg",
+        ogImage: `${SITE_CONFIG.domain}/logo.svg`,
     },
     about: {
         title: "About BlockPrints - Our Heritage & Artisan Story | Indian Block Printing",
-        description: "Discover BlockPrintsjourney preserving 2000-year-old Indian block printing traditions. Meet our Jaipur artisans, learn about natural dyes, Dabu, Ajrakh techniques.",
-        keywords: [...STYLE_KEYWORDS, ...PRINT_STYLE_KEYWORDS.slice(0, 50)].join(", "),
+        description: "Discover BlockPrints journey preserving 2000-year-old Indian block printing traditions. Meet our Jaipur artisans, learn about natural dyes, Dabu, Ajrakh techniques.",
+        keywords: "indian block printing history, jaipur artisans, traditional textile art, natural dye process, dabu printing, ajrakh technique, sustainable fashion india",
         canonical: `${SITE_CONFIG.domain}/about`,
-        ogImage: "/og-about.jpg",
+        ogImage: `${SITE_CONFIG.domain}/logo.svg`,
     },
     contact: {
         title: "Contact BlockPrints | Customer Support & Inquiries",
         description: "Get in touch with BlockPrints for orders, custom requests, wholesale inquiries, or artisan collaborations. We ship worldwide from India.",
-        keywords: "contact blockprints, block print store contact, indian clothing customer service, wholesale block print, custom block print order",
+        keywords: "contact blockprints, block print store, wholesale block print, custom block print order, indian clothing store",
         canonical: `${SITE_CONFIG.domain}/contact`,
-        ogImage: "/og-contact.jpg",
+        ogImage: `${SITE_CONFIG.domain}/logo.svg`,
     },
 };
 
