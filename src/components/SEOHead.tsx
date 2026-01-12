@@ -39,10 +39,12 @@ const SEOHead = ({ page, product, article }: SEOHeadProps) => {
 
         switch (page) {
             case 'home':
-                schemas.push(STORE_SCHEMA);
+                // Home only gets Organization + Website (already added above)
                 break;
             case 'shop':
+                // Shop gets CollectionPage + Store schemas
                 schemas.push(COLLECTION_PAGE_SCHEMA);
+                schemas.push(STORE_SCHEMA);
                 break;
             case 'contact':
                 schemas.push(LOCAL_BUSINESS_SCHEMA);
